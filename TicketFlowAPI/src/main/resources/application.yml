@@ -1,0 +1,36 @@
+server:
+  port: 8081
+  host: http://localhost:8081
+
+spring:
+  application:
+    name: spring-security-jwt
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5431/spring-security-jwt
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  liquibase:
+    change-log: 'classpath:/db/changelog-master.yaml'
+
+rsa:
+  public-key: classpath:certs/public.pem
+  private-key: classpath:certs/private.pem
+  expiration-in-seconds: 21600
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+    dev:
+      chijiokeibekwe:
+        librarymanagementsystem: INFO
